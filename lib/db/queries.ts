@@ -68,8 +68,13 @@ async function readDB(): Promise<AppDatabase> {
 }
 
 async function writeDB(db: AppDatabase): Promise<void> {
-  await mkdir(dataDir, { recursive: true });
-  await writeFile(dataFile, JSON.stringify(db, null, 2), 'utf8');
+  try {
+    await mkdir(dataDir, { recursive: true });
+    await writeFile(dataFile, JSON.stringify(db, null, 2), 'utf8');
+  } catch {
+    // Vercel and other read-only environments cannot write to disk.
+    // Data is persisted on the client via localStorage instead.
+  }
 }
 
 export async function saveUserProfile(profile: UserProfile): Promise<void> {
