@@ -9,21 +9,6 @@ export async function GET() {
 
   const keyInfo = { length: key.length, prefix: key.substring(0, 6), configured: true };
 
-  // First, list available models
-  let availableModels: string[] = [];
-  try {
-    const { GoogleGenerativeAI } = await import('@google/generative-ai');
-    const genAI = new GoogleGenerativeAI(key);
-    const modelsResult = await genAI.listModels();
-    for await (const m of modelsResult) {
-      if (m.supportedGenerationMethods?.includes('generateContent')) {
-        availableModels.push(m.name ?? '');
-      }
-    }
-  } catch (e) {
-    availableModels = [`listModels failed: ${(e as Error).message}`];
-  }
-
   // Try the first available model that supports generateContent
   const modelsToTry = [
     'gemini-2.0-flash',
@@ -50,5 +35,5 @@ export async function GET() {
     }
   }
 
-  return NextResponse.json({ keyInfo, availableModels, chatTest: results });
+  return NextResponse.json({ keyInfo, chatTest: results });
 }
