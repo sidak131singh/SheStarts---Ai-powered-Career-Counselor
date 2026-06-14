@@ -1,0 +1,20 @@
+{
+  "framework": "nextjs",
+  "regions": ["bom1"],
+  "functions": {
+    "app/api/counselor/stream/route.ts": {
+      "maxDuration": 60
+    },
+    "app/api/career-recommendations/route.ts": {
+      "maxDuration": 30
+    },
+    "app/api/employability-score/route.ts": {
+      "maxDuration": 15
+    }
+  },
+  "env": {
+    "NEXTAUTH_URL": "@nextauth_url",
+    "NEXTAUTH_SECRET": "@nextauth_secret",
+    "ANTHROPIC_API_KEY": "@anthropic_api_key"
+  }
+}
