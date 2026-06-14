@@ -11,8 +11,5 @@
     "app/api/employability-score/route.ts": {
       "maxDuration": 15
     }
-  },
-  "env": {
-    "GOOGLE_AI_API_KEY": "@google_ai_api_key"
   }
 }
