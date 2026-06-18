@@ -12,7 +12,7 @@
 
 SheStarts Career Compass is a full-stack AI web application that helps women restart their professional careers after a break — whether for childcare, health, or personal reasons. It provides a personalised 90-day roadmap, a career readiness score, AI-powered career matching, and a conversational AI counselor (Prerna) powered by Google Gemini 2.5 Flash.
 
-**Live demo target:** Vercel · [Deploy instructions below](#deployment)
+**Live demo target:** Vercel · (https://careercompass-chi-two.vercel.app/)
 
 ---
 
